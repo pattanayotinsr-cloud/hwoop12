@@ -1,0 +1,69 @@
+use std::f64::consts::PI;
+
+/* -------- Trait -------- */
+trait Shape {
+    fn area(&self) -> f64;
+    fn perimeter(&self) -> f64;
+    fn info(&self);
+}
+
+/* -------- Rectangle -------- */
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
+
+impl Shape for Rectangle {
+    fn area(&self) -> f64 {
+        self.width * self.height
+    }
+
+    fn perimeter(&self) -> f64 {
+        2.0 * (self.width + self.height)
+    }
+
+    fn info(&self) {
+        println!("--------------- Rectangle ----------------");
+        println!(
+            "Width: {}  Height: {}  Area: {}  Perimeter: {}",
+            self.width,
+            self.height,
+            self.area(),
+            self.perimeter()
+        );
+    }
+}
+
+/* -------- Circle -------- */
+struct Circle {
+    radius: f64,
+}
+
+impl Shape for Circle {
+    fn area(&self) -> f64 {
+        PI * self.radius * self.radius
+    }
+
+    fn perimeter(&self) -> f64 {
+        2.0 * PI * self.radius
+    }
+
+    fn info(&self) {
+        println!("--------------- Circle ----------------");
+        println!(
+            "Radius: {}  Area: {}  Perimeter: {}",
+            self.radius,
+            self.area(),
+            self.perimeter()
+        );
+    }
+}
+
+/* -------- Main -------- */
+fn main() {
+    let r1 = Rectangle { width: 5.0, height: 6.0 };
+    r1.info();
+
+    let c1 = Circle { radius: 8.0 };
+    c1.info();
+}
