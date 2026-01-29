@@ -1,0 +1,66 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+/* -------- Interface -------- */
+type Shape interface {
+	Area() float64
+	Perimeter() float64
+	Info()
+}
+
+/* -------- Rectangle -------- */
+type Rectangle struct {
+	width  float64
+	height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.width * r.height
+}
+
+func (r Rectangle) Perimeter() float64 {
+	return 2 * (r.width + r.height)
+}
+
+func (r Rectangle) Info() {
+	fmt.Println("Shape: Rectangle")
+	fmt.Println("Width:", r.width)
+	fmt.Println("Height:", r.height)
+	fmt.Println("Area:", r.Area())
+	fmt.Println("Perimeter:", r.Perimeter())
+	fmt.Println("---------------------")
+}
+
+/* -------- Circle -------- */
+type Circle struct {
+	radius float64
+}
+
+func (c Circle) Area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c Circle) Perimeter() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+func (c Circle) Info() {
+	fmt.Println("Shape: Circle")
+	fmt.Println("Radius:", c.radius)
+	fmt.Println("Area:", c.Area())
+	fmt.Println("Perimeter:", c.Perimeter())
+	fmt.Println("---------------------")
+}
+
+/* -------- Main -------- */
+func main() {
+	var s1 Shape = Rectangle{width: 5, height: 10}
+	var s2 Shape = Circle{radius: 7}
+
+	s1.Info()
+	s2.Info()
+}
