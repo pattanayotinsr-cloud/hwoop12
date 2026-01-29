@@ -58,8 +58,8 @@ func (c Circle) Info() {
 
 /* -------- Main -------- */
 func main() {
-	var s1 Shape = Rectangle{width: 5, height: 10}
-	var s2 Shape = Circle{radius: 7}
+	var s1  = Rectangle{width: 5, height: 10}
+	var s2  = Circle{radius: 7}
 
 	s1.Info()
 	s2.Info()
